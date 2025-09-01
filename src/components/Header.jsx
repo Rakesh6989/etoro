@@ -3,8 +3,69 @@ import { useState } from "react";
 import { Search, Menu, X } from "lucide-react";
 import Image from "next/image";
 
+const navItems = [
+    {
+        label: "Trading",
+        links: [
+            "Trade Markets on eToro",
+            "Trading Platform",
+            "Crypto on eToro",
+            "CFD Trading",
+            "Local Trading",
+            "Demo Account",
+            "Fees",
+            "Market Hours and Events",
+            "Professional Account",
+        ],
+    },
+    {
+        label: "Investing",
+        links: [
+            "Stocks",
+            "Copy Top Investors",
+            "Investment Portfolios",
+            "Popular Investor Program",
+            "Staking Crypto",
+            "eToro Earnings Reports Calendar",
+            "Delta",
+            "ESG"
+        ],
+    },
+    {
+        label: "Top Markets",
+        links: ["Cryptocurrencies",
+            "Stocks",
+            "Commodities",
+            "Currencies",
+            "All Markets"],
+    },
+    {
+        label: "Education",
+        links: ["eToro Academy",
+            "News and Analysis",
+            "In Depth Analysis",
+            "Digest & Invest",
+            "Loud Investing",
+            "Retail Investor Beat",
+            "Account Security"],
+    },
+    {
+        label: "Company",
+        links: ["eToro Unlocked",
+            "About",
+            "Help Center",
+            "Investor Relations",
+            "Media Center",
+            "Careers",
+            "eToro Club",
+            "eToro Money",
+            "Socially Responsible"],
+    },
+];
+
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
+
     return (
         <div className="bg-white shadow-lg">
             <header className="w-full Container-Div">
@@ -18,12 +79,29 @@ export default function Header() {
                             className="object-contain"
                         />
 
-                        <nav className="hidden md:flex gap-5 text-[#404059] text-base">
-                            <a href="#" className="hover:text-black">Trading</a>
-                            <a href="#" className="hover:text-black">Investing</a>
-                            <a href="#" className="hover:text-black">Top Markets</a>
-                            <a href="#" className="hover:text-black">Education</a>
-                            <a href="#" className="hover:text-black">Company</a>
+                        <nav className="hidden md:flex gap-6 text-[#404059] text-base relative ">
+                            {navItems.map((item) => (
+                                <div key={item.label} className="group  relative hover:bg-[#f7f7f7] p-2 ">
+                                    <button className=" text-lg text-[#404059] cursor-pointer z-20">
+                                        {item.label}
+                                    </button>
+
+                                    <div className="absolute cursor-pointer left-0 top-full hidden group-hover:block bg-white shadow-lg rounded-md w-80 z-20">
+                                        <ul className="flex flex-col p-5 text-sm text-gray-700">
+                                            {item.links.map((link) => (
+                                                <li key={link}>
+                                                    <a
+                                                        href="#"
+                                                        className="block px-3 py-2 hover:bg-gray-100 rounded-md text-lg"
+                                                    >
+                                                        {link}
+                                                    </a>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+                            ))}
                         </nav>
                     </div>
 
@@ -47,6 +125,7 @@ export default function Header() {
                         </a>
                     </div>
 
+                    {/* Mobile Hamburger */}
                     <button
                         className="md:hidden text-[#404059]"
                         onClick={() => setMenuOpen(!menuOpen)}
@@ -55,13 +134,23 @@ export default function Header() {
                     </button>
                 </div>
 
+                {/* Mobile Dropdown */}
                 {menuOpen && (
                     <div className="md:hidden flex flex-col space-y-4 px-6 pb-4 text-[#404059] text-base bg-white shadow-md">
-                        <a href="#" className="hover:text-black">Trading</a>
-                        <a href="#" className="hover:text-black">Investing</a>
-                        <a href="#" className="hover:text-black">Top Markets</a>
-                        <a href="#" className="hover:text-black">Education</a>
-                        <a href="#" className="hover:text-black">Company</a>
+                        {navItems.map((item) => (
+                            <div key={item.label}>
+                                <p className="font-semibold">{item.label}</p>
+                                <ul className="ml-3 mt-1 space-y-1">
+                                    {item.links.map((link) => (
+                                        <li key={link}>
+                                            <a href="#" className="block hover:text-black">
+                                                {link}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
 
                         <hr className="border-gray-200" />
 
