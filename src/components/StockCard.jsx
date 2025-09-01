@@ -1,118 +1,117 @@
-"use client";
+'use client';
+import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 
-import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+const stocks = [
+  {
+    symbol: 'AMZN',
+    name: 'Amazon.com Inc',
+    logo: 'https://cdn.pixabay.com/photo/2021/04/18/06/15/amazon-6188204_1280.png',
+    value: '228.45',
+    change: '▲ 2.5 (1.1%)',
+    chart: 'https://example.com/amazon-chart.svg', // Replace with your chart image
+  },
+  {
+    symbol: 'TSLA',
+    name: 'Tesla Motors, Inc.',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Tesla_T_symbol.svg/1200px-Tesla_T_symbol.svg.png',
+    value: '334.37',
+    change: '▼ 12 (-3.5%)',
+    chart: 'https://example.com/tesla-chart.svg', // Replace with your chart image
+    highlight: true,
+  },
+  {
+    symbol: 'AAPL',
+    name: 'Apple Inc.',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg',
+    value: '232.51',
+    change: '▲ 0 (-0.18%)',
+    chart: 'https://example.com/apple-chart.svg', // Replace with your chart image
+  },
+];
 
-// Stock Card Component
-function StockCard({ stock }) {
-  return (
-    <div className="p-3">
-      <div
-        className={`rounded-2xl shadow-md p-6 text-white ${
-          stock.color === "red" ? "bg-red-600" : "bg-gray-700"
-        }`}
-      >
-        <h2 className="text-lg font-bold">{stock.symbol}</h2>
-        <p className="text-sm">{stock.name}</p>
-        <div className="text-3xl font-bold mt-2">{stock.price}</div>
-        <div
-          className={`text-sm ${
-            stock.change < 0 ? "text-red-300" : "text-green-300"
-          }`}
-        >
-          {stock.change} ({stock.percent}%)
-        </div>
-      </div>
-    </div>
-  );
-}
+export default function StockSlider() {
+  const [activeSlide, setActiveSlide] = useState(1);
+  const sliderRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
-// Main Component
-export default function StockSection({ reverse = false }) {
-  const stocks = [
-    {
-      symbol: "AMZN",
-      name: "Amazon.com Inc",
-      price: "289.12",
-      change: "+2",
-      percent: "+1.5",
-      color: "gray",
-    },
-    {
-      symbol: "TSLA",
-      name: "Tesla Motors, Inc.",
-      price: "334.37",
-      change: "-12",
-      percent: "-3.5",
-      color: "red",
-    },
-    {
-      symbol: "AAPL",
-      name: "Apple Inc",
-      price: "232.51",
-      change: "+0",
-      percent: "+0.18",
-      color: "gray",
-    },
-  ];
-
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3, // 3 items in one row
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024, // tablet
-        settings: { slidesToShow: 2 },
-      },
-      {
-        breakpoint: 640, // mobile
-        settings: { slidesToShow: 1 },
-      },
-    ],
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - sliderRef.current.offsetLeft);
+    setScrollLeft(sliderRef.current.scrollLeft);
   };
 
-  return (
-    <section className="w-full bg-gray-50 py-12">
-      <div
-        className={`container mx-auto flex flex-col md:flex-row items-center gap-8 ${
-          reverse ? "md:flex-row-reverse" : ""
-        }`}
-      >
-        {/* Left Side - Text */}
-        <div className="md:w-1/2 space-y-6 px-6">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Invest in stocks <br /> from around the globe
-          </h1>
-          <p className="text-gray-600">
-            From technology to healthcare, New York to Hong Kong — with
-            fractional shares, it’s easy to fill your portfolio with a variety
-            of leading stocks from the world’s top exchanges.
-          </p>
-          <button className="bg-green-500 hover:bg-green-600 text-white rounded-full px-6 py-3 text-lg">
-            Start Investing in Stocks
-          </button>
-          <button
-            variant="outline"
-            className="rounded-full px-6 py-3 text-lg mt-3"
-          >
-            See All Stocks
-          </button>
-        </div>
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
 
-        {/* Right Side - Slider */}
-        <div className="md:w-1/2 px-6">
-          <Slider {...settings}>
-            {stocks.map((stock, index) => (
-              <StockCard key={index} stock={stock} />
-            ))}
-          </Slider>
-        </div>
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - sliderRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Adjust scroll speed
+    sliderRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleScroll = () => {
+    const scrollPos = sliderRef.current.scrollLeft;
+    const cardWidth = sliderRef.current.querySelector('.stock-card').offsetWidth;
+    const centerIndex = Math.round(scrollPos / cardWidth);
+    setActiveSlide(centerIndex);
+  };
+
+  useEffect(() => {
+    const handleSnap = () => {
+      if (!isDragging) {
+        const cardWidth = sliderRef.current.querySelector('.stock-card').offsetWidth;
+        const targetScroll = activeSlide * cardWidth;
+        sliderRef.current.scrollTo({
+          left: targetScroll,
+          behavior: 'smooth',
+        });
+      }
+    };
+    handleSnap();
+  }, [activeSlide, isDragging]);
+
+  return (
+    <div className="relative overflow-hidden w-full flex flex-col items-center py-10">
+      <div
+        ref={sliderRef}
+        className="flex overflow-x-scroll no-scrollbar snap-x snap-mandatory cursor-grab active:cursor-grabbing pb-8"
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+        onScroll={handleScroll}
+      >
+        {stocks.map((stock, index) => (
+          <div
+            key={stock.symbol}
+            className={`
+              stock-card
+              flex-shrink-0 w-[20rem] h-[20rem] rounded-xl snap-center
+              mx-4 transition-all duration-300 transform
+              ${index === activeSlide ? 'scale-110 z-10 shadow-2xl' : 'scale-90 opacity-60'}
+              ${stock.highlight ? 'bg-red-600' : 'bg-white'}
+            `}
+          >
+            {/* Card Content */}
+          </div>
+        ))}
       </div>
-    </section>
+      <a
+        href="#"
+        className="mt-12 px-10 py-4 border-2 border-[#161642] rounded-full font-semibold text-[#161642] hover:bg-[#161642] hover:text-white transition-colors"
+      >
+        See All Stocks
+      </a>
+    </div>
   );
 }
