@@ -10,12 +10,13 @@ import EToroAcademy from "@/components/EToroAcademy";
 import BankPartners from "@/components/BankPartners";
 import TrustedWorldwide from "@/components/TrustedWorldwide";
 import SponsorSlider from "@/components/SponsorSlider";
-
+import FooterLinks from "@/components/FooterLinks";
+import DisclaimerFooter from "@/components/DisclaimerFooter";
 export default function Home() {
   return (
     <>
       <HeroBanner
-        breadcrumb={true}  // ab ye auto chalu hoga
+        breadcrumb={true} 
         title="Yep it's "
         highlight="all in one app"
         description="Invest in thousands of stocks, crypto, ETFs… all in one easy-to-use app"
@@ -37,6 +38,8 @@ export default function Home() {
       <BankPartners />
       <TrustedWorldwide />
       <SponsorSlider />
+      <FooterLinks />
+      <DisclaimerFooter />
     </>
   );
 }

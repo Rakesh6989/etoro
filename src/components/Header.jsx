@@ -11,7 +11,7 @@ const navItems = [
         links: [
             { label: "Trade Markets on eToro", href: "/trading/markets" },
             { label: "Trading Platform", href: "/trading/platform" },
-            { label: "Crypto on eToro", href: "/trading/crypto" },
+            { label: "Crypto on eToro", href: "/crypto" },
             { label: "CFD Trading", href: "/trading/cfd" },
             { label: "Local Trading", href: "/trading/local" },
             { label: "Demo Account", href: "/trading/demo" },

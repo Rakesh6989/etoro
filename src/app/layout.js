@@ -42,8 +42,7 @@ export default function RootLayout({ children }) {
         <TopBar text={text} url={url} BtnText={BtnText} />
         <Header />
         <main>{children}</main>
-        <FooterLinks />
-        <DisclaimerFooter />
+        
       </body>
     </html>
   );
