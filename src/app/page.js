@@ -14,7 +14,18 @@ import SponsorSlider from "@/components/SponsorSlider";
 export default function Home() {
   return (
     <>
-      <HeroBanner />
+      <HeroBanner
+        breadcrumb={true}  // ab ye auto chalu hoga
+        title="Yep it's "
+        highlight="all in one app"
+        description="Invest in thousands of stocks, crypto, ETFs… all in one easy-to-use app"
+        buttonText="Join eToro"
+        buttonLink="/staking/start"
+        imageSrc="/user.webp"
+        imageAlt="eToro staking"
+        termsText=""
+      />
+
       <HeroAISection />
       <InterestSection />
       <Marquee />

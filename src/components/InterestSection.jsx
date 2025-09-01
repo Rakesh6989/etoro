@@ -4,7 +4,7 @@ import Image from 'next/image';
 const InterestSection = () => {
     return (
         <section className="bg-white py-12 md:py-20 lg:py-24">
-            <div className="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-between">
+            <div className="Container-Div mx-auto flex flex-col lg:flex-row items-center justify-between">
                 <div className="text-center lg:text-left mb-12 lg:mb-0 lg:w-1/2">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-black leading-tight mb-4">
                         Earn up to <span className="text-[#16a34a]">4.3%*</span> annual <br className="hidden md:inline" />
