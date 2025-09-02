@@ -7,10 +7,10 @@ const CryptoHero = () => {
   return (
     <div className="bg-white py-5 px-6 sm:px-12 lg:px-24">
       <div className="container mx-auto">
-        <div className="flex flex-col lg:flex-row items-center lg:justify-between space-y-12 lg:space-y-0 lg:space-x-12">
+        <div className="flex flex-col lg:flex-row  lg:justify-between  lg:space-y-0 lg:space-x-12">
           {/* Left Side: Text and Button */}
           <div className="flex-1 text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4 text-[#1a2033]">
+            <h1 className="text-4xl sm:text-5xl lg:text-4xl font-bold leading-tight mb-4 text-[#1a2033]">
               <span className="text-[#3b82f6]">YOUR CRYPTO, YOUR</span>
               <br />
               <span className="text-[#3b82f6]">OPPORTUNITIES ON ETORO</span>
@@ -28,28 +28,17 @@ const CryptoHero = () => {
             </div>
           </div>
 
-          {/* Right Side: Image */}
-          <div className="flex-1 relative w-full h-[450px] sm:h-[600px] lg:h-[700px] mt-8 lg:mt-0 flex justify-center items-center">
-            {/* Main image with awards badge */}
+          <div className="flex-1   relative w-full max-h-[450px] sm:max-h-[600px] lg:max-h-[700px] mt-8 lg:mt-0 flex justify-center items-center">
             <Image
-              src="/crypto-half-cover-desk.png" // Replace with your image path
+              src="/crypto-half-cover-desk.png"
               alt="eToro mobile app displaying crypto trading interface"
               layout="fill"
               objectFit="contain"
               quality={100}
-              className="z-10"
+              priority
+              className="z-10 h-full w-full"
             />
             
-            {/* Optional: Awards badge, positioned absolutely */}
-            <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 lg:bottom-16 lg:left-1/3 z-20 w-40">
-              <Image
-                src="/best-broker-awards.png" // Replace with your image path
-                alt="Best Broker Awards 2024 badge"
-                width={150}
-                height={150}
-                objectFit="contain"
-              />
-            </div>
           </div>
         </div>
       </div>
