@@ -67,8 +67,9 @@ export default function Crypto() {
 
                     <div>
                         <p className="text-sm leading-relaxed">
-                            The wallet is provided by eToro (Seychelles) Ltd ("eToroSey"), a limited liability company incorporated in Seychelles with company number 8426215-1 and with its registered office at Room 12, Kingsgate House, Independence Avenue, Victoria, Mahe, Seychelles. eToro Seychelles is a regulated Virtual Asset Service Provider licensed by the Financial Services Authority ("FSA") under the Virtual Asset Service Providers Act, 2024. <a href="#" className="text-blue-500 hover:underline">See Terms of Use.</a>
+                            The wallet is provided by eToro (Seychelles) Ltd (&quot;eToroSey&quot;), a limited liability company incorporated in Seychelles with company number 8426215-1 and with its registered office at Room 12, Kingsgate House, Independence Avenue, Victoria, Mahe, Seychelles. eToro Seychelles is a regulated Virtual Asset Service Provider licensed by the Financial Services Authority (&quot;FSA&quot;) under the Virtual Asset Service Providers Act, 2024. <a href="#" className="text-blue-500 hover:underline">See Terms of Use.</a>
                         </p>
+
                     </div>
 
                     <div>
