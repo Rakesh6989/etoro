@@ -21,10 +21,16 @@ export default function TopBar() {
       BtnText = null;
       break;
 
-    case "/contact":
-      text = "Get in touch with us for more details.";
+    case "/crypto":
+      text = "Crypto investments may not be appropriate for retail investors and the full amount invested may be lost. It is important to read and understand the risks of this investment, which are explained in detail at this link.";
       url = "/";
       BtnText = "Go Home";
+      break;
+      
+    case "/trading/cfd":
+      text = "CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 61% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work, and whether you can afford to take the high risk of losing your money.";
+      url = "/";
+      BtnText = null;
       break;
 
     default:
