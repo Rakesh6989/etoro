@@ -68,7 +68,7 @@ const BankPartners = () => {
         </div>
 
         <p className="text-sm text-gray-500 max-w-2xl mx-auto">
-          *These banks are partnered and do not serve all entities within the group
+          *These banks are partnered and do not serve all entities within the Group
         </p>
       </div>
     </section>
