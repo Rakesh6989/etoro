@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Search, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -73,15 +73,44 @@ const navItems = [
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [openDropdown, setOpenDropdown] = useState(null);
     const router = useRouter();
+    const headerRef = useRef(null);
+
+    // Click outside handler
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (headerRef.current && !headerRef.current.contains(event.target)) {
+                setOpenDropdown(null);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+    const handleLinkClick = () => {
+        setOpenDropdown(null);
+        setMenuOpen(false);
+    };
+
+    const handleMouseEnter = (index) => {
+        setOpenDropdown(index);
+    };
+
+    const handleMouseLeave = () => {
+        setOpenDropdown(null);
+    };
 
     return (
-        <div className="bg-white shadow-lg">
+        <div className="bg-white shadow-lg" ref={headerRef}>
             <header className="w-full Container-Div">
                 <div className="flex items-center justify-between px-6 py-4">
                     <div className="flex items-center space-x-8">
                         {/* Logo */}
-                        <Link href="/">
+                        <Link href="/" onClick={handleLinkClick}>
                             <Image
                                 src="/logo.png"
                                 alt="etoro"
@@ -93,22 +122,29 @@ export default function Header() {
 
                         {/* Desktop Nav */}
                         <nav className="hidden md:flex gap-6 text-[#404059] text-base relative">
-                            {navItems.map((item) => (
+                            {navItems.map((item, index) => (
                                 <div
                                     key={item.label}
                                     className="group relative hover:bg-[#f7f7f7] p-2"
+                                    onMouseEnter={() => handleMouseEnter(index)}
+                                    onMouseLeave={handleMouseLeave}
                                 >
                                     <button className="text-lg text-[#404059] cursor-pointer z-20">
                                         {item.label}
                                     </button>
 
-                                    <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-lg rounded-md w-80 z-20">
+                                    <div 
+                                        className={`absolute left-0 top-full ${
+                                            openDropdown === index ? 'block' : 'hidden'
+                                        } bg-white shadow-lg rounded-md w-80 z-20`}
+                                    >
                                         <ul className="flex flex-col p-5 text-sm text-gray-700">
                                             {item.links.map((link) => (
                                                 <li key={link.href}>
                                                     <Link
                                                         href={link.href}
                                                         className="block px-3 py-2 hover:text-[#13C737] rounded-md text-lg"
+                                                        onClick={handleLinkClick}
                                                     >
                                                         {link.label}
                                                     </Link>
@@ -117,7 +153,7 @@ export default function Header() {
                                         </ul>
                                     </div>
                                 </div>
-                            ))}
+                                            ))}
                         </nav>
                     </div>
 
@@ -125,7 +161,10 @@ export default function Header() {
                     <div className="hidden md:flex items-center space-x-6 text-[#404059] text-base">
                         <button
                             className="flex items-center space-x-1 hover:text-black"
-                            onClick={() => router.push("/search")} // programmatic navigation
+                            onClick={() => {
+                                router.push("/search");
+                                handleLinkClick();
+                            }}
                         >
                             <Search size={18} />
                             <span>Search</span>
@@ -142,7 +181,7 @@ export default function Header() {
                             <span>English (UK)</span>
                         </button>
 
-                        <Link href="/login" className="hover:text-black text-[#404059]">
+                        <Link href="/login" className="hover:text-black text-[#404059]" onClick={handleLinkClick}>
                             Login
                         </Link>
                     </div>
@@ -165,7 +204,11 @@ export default function Header() {
                                 <ul className="ml-3 mt-1 space-y-1">
                                     {item.links.map((link) => (
                                         <li key={link.href}>
-                                            <Link href={link.href} className="block hover:text-black">
+                                            <Link 
+                                                href={link.href} 
+                                                className="block hover:text-black"
+                                                onClick={handleLinkClick}
+                                            >
                                                 {link.label}
                                             </Link>
                                         </li>
@@ -178,7 +221,10 @@ export default function Header() {
 
                         <button
                             className="flex items-center space-x-1 hover:text-black"
-                            onClick={() => router.push("/search")}
+                            onClick={() => {
+                                router.push("/search");
+                                handleLinkClick();
+                            }}
                         >
                             <Search size={18} />
                             <span>Search</span>
@@ -195,7 +241,7 @@ export default function Header() {
                             <span>English (UK)</span>
                         </button>
 
-                        <Link href="/login" className="hover:text-black">
+                        <Link href="/login" className="hover:text-black" onClick={handleLinkClick}>
                             Login
                         </Link>
                     </div>
