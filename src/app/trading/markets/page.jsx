@@ -85,7 +85,7 @@ const Markets = () => {
 
             />
             <MarketDataItem stats={statsData} />
-            <div className="flex">
+            <div className="flex ">
 
 
 

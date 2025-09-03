@@ -97,7 +97,7 @@ const FeatureSlider = () => {
 
   return (
     <div className="bg-[#121124] py-16 px-4 text-white">
-      <div className="max-w-7xl mx-auto text-center mb-12">
+      <div className=" mx-auto text-center mb-12">
         <h2 className="text-4xl font-bold">Pro Tools <span className="text-gray-400 font-normal">for Traders</span></h2>
         <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
           eToro’s innovative platform is packed with user-friendly advanced features, designed to give you the edge when making important trading decisions on the fly

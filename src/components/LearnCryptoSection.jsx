@@ -5,8 +5,8 @@ import Link from 'next/link';
 
 const LearnCryptoSection = () => {
   return (
-    <div className="bg-white py-16 px-6 sm:px-12 lg:px-24">
-      <div className="container mx-auto">
+    <div className="bg-white py-16 Container-Div">
+      <div className=" mx-auto">
         <div className="flex flex-col lg:flex-row items-center lg:justify-between lg:space-x-12">
           {/* Left Side: Text Content */}
           <div className="flex-1 text-center lg:text-left mb-12 lg:mb-0">

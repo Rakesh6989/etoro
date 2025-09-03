@@ -3,7 +3,7 @@ import React from "react";
 
 const EtoroSection = () => {
   return (
-    <div className="bg-white relative">
+    <div className="bg-white relative ">
       {/* Green Background Section */}
       <div className="relative bg-[#12C637] min-h-[60vh] flex items-center overflow-hidden">
         {/* Full-width image */}

@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const TradeWithCryptoSection = () => {
     return (
-        <div className="bg-white py-16 px-6 sm:px-12 lg:px-24 text-center">
+        <div className="bg-white py-16 Container-Div text-center">
             <div className="container mx-auto">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1a2033] mb-4">
                     Trade with your crypto on eToro

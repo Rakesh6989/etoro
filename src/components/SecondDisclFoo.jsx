@@ -4,7 +4,7 @@ import React from 'react';
 const DisclaimerFooter = () => {
     return (
         <div className="bg-[#1a2033] py-16 text-[#777] px-4">
-            <div className="container mx-auto max-w-6xl">
+            <div className="Container-Div mx-auto max-w-6xl">
                 {/* Main Disclaimer Text */}
                 <p className="mb-6">
                     CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 61% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.

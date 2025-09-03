@@ -5,8 +5,8 @@ import Link from 'next/link';
 
 const CfdTradingSection = () => {
   return (
-    <div className="py-2 px-6 sm:px-12 lg:px-24">
-      <div className="container mx-auto">
+    <div className="py-2 Container-Div">
+      <div className=" mx-auto">
         <div className="flex flex-col lg:flex-row items-center lg:justify-between space-y-12 lg:space-y-0 lg:space-x-12">
           {/* Left Side: Text and Button */}
           <div className="flex-1 text-center lg:text-left">

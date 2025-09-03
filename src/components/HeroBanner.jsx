@@ -16,8 +16,8 @@ const HeroBanner = ({
     descclass
 }) => {
     return (
-        <section className="flex items-center justify-center min-h-[500px] py-12 md:py-20 lg:py-10">
-            <div className="container   flex flex-col lg:flex-row items-center justify-between Container-Div">
+        <section className="flex Container-Div items-center justify-center min-h-[500px] py-12 md:py-20 lg:py-10">
+            <div className="   flex flex-col lg:flex-row items-center justify-between Container-Div">
 
                 {/* Left Section */}
                 <div className="text-center lg:text-left lg:w-1/2 mb-12 lg:mb-0">

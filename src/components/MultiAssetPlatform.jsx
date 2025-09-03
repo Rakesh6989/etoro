@@ -4,8 +4,8 @@ import Image from 'next/image';
 import { Info, CircleDollarSign } from 'lucide-react';
 const MultiAssetPlatform = () => {
     return (
-        <div className=" py-16 px-4">
-            <div className="max-w-6xl mx-auto text-center">
+        <div className=" py-16 Container-Div">
+            <div className=" mx-auto text-center">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
                     Multi-asset platform
                 </h2>

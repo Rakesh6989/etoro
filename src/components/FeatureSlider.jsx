@@ -67,8 +67,8 @@ const FeatureSlider = () => {
   const currentFeature = features[activeIndex];
 
   return (
-    <div className="w-full py-12 sm:py-16 md:py-20 bg-[#3E4551]">
-      <div className="max-w-6xl mx-auto rounded-2xl overflow-hidden px-4 sm:px-6 md:px-8">
+    <div className="w-full py-12   sm:py-16 md:py-20 bg-[#3E4551]">
+      <div className=" mx-auto rounded-2xl overflow-hidden px-4 sm:px-6 md:px-8">
         {/* Title */}
         <p className="text-center text-white text-2xl sm:text-3xl md:text-4xl py-3 font-semibold">
           Platform features
@@ -110,8 +110,8 @@ const FeatureSlider = () => {
         </div>
 
         {/* Feature Icons */}
-        <div className="border-t border-[#64666e] px-2 sm:px-6 md:px-8 py-4 sm:py-6">
-          <div className="flex justify-between gap-1 sm:gap-3  scrollbar-hide">
+        <div className="border-t  mx-auto  max-w-4xl border-[#64666e] px-2 sm:px-6 md:px-8 py-4 sm:py-6">
+          <div className="flex justify-between gap-1 sm:gap-3   scrollbar-hide">
             {features.map((feature, index) => (
               <button
                 key={feature.id}
@@ -133,10 +133,10 @@ const FeatureSlider = () => {
         </div>
 
         {/* Text Section */}
-        <p className="text-lg sm:text-xl md:text-2xl text-white py-2 sm:py-3 uppercase">
+        <p className="text-lg  mx-auto  max-w-4xl sm:text-xl md:text-2xl text-white py-2 sm:py-3 uppercase">
           Virtual portfolio
         </p>
-        <p className="text-[#ffffffde] text-sm sm:text-base md:text-lg">
+        <p className="text-[#ffffffde]  mx-auto  max-w-4xl text-sm sm:text-base md:text-lg">
           Upon opening an account with eToro, each user receives a free{" "}
           <span className="text-green-600">$100,000 demo account.</span> Using
           their account, eToro clients can build a virtual portfolio to practice

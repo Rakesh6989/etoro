@@ -3,8 +3,8 @@ import Image from 'next/image';
 
 const DownloadSection = () => {
   return (
-    <div className="bg-white py-16 px-4">
-      <div className="container mx-auto max-w-6xl">
+    <div className="bg-white py-16 px-4 Container-Div">
+      <div className="container mx-auto ">
         <div className="flex flex-col lg:flex-row items-center justify-between lg:space-x-12">
           <div className="lg:w-1/2 mb-12 lg:mb-0 text-center lg:text-left">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">

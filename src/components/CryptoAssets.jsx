@@ -12,7 +12,7 @@ const cryptoCards = [
 
 const CryptoAssets = () => {
   return (
-    <div className="bg-[#050520] py-12 px-6 sm:px-12 lg:px-24">
+    <div className="bg-[#050520] py-12  px-6 sm:px-12 lg:px-24">
       {/* Heading */}
       <div className="text-center mb-10">
         <h2 className="text-3xl sm:text-4xl font-bold text-white">

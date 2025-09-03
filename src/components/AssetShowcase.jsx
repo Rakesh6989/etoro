@@ -14,8 +14,8 @@ const assets = [
 
 const AssetShowcase = () => {
   return (
-    <div className="bg-white py-12 px-4 sm:px-6 lg:px-8 font-sans">
-      <div className="max-w-6xl mx-auto text-center">
+    <div className="bg-white py-12 px-4  font-sans">
+      <div className=" mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-gray-900">
           Diversify with ease on a <span className="font-bold">multi-asset platform</span>
         </h2>

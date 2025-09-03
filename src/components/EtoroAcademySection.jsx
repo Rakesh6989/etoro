@@ -5,8 +5,8 @@ import Link from 'next/link';
 
 const EtoroAcademySection = () => {
   return (
-    <div className="bg-[#1a2033] py-16 px-6 sm:px-12 lg:px-24 text-center text-gray-300">
-      <div className="container mx-auto">
+    <div className="bg-[#1a2033] py-16 px-6 text-center text-gray-300 Container-Div">
+      <div className=" mx-auto">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
           eToro Academy: The Knowledge to Trade
         </h2>

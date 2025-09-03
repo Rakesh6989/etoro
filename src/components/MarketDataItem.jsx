@@ -3,7 +3,7 @@ import React from "react";
 
 export default function MarketDataItem({ stats }) {
     return (
-        <section className="w-full py-12 bg-gray-50">
+        <section className=" Container-Div w-full py-12 bg-gray-50">
             <div className="max-w-6xl mx-auto px-6 flex flex-wrap justify-center gap-6">
                 {stats.map((item, idx) => (
                     <div

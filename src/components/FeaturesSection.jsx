@@ -121,8 +121,8 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <div className="bg-white py-16 px-4">
-      <div className="max-w-6xl mx-auto text-center">
+    <div className="bg-white py-16 px-4 Container-Div">
+      <div className="mx-auto text-center">
         <h2 className="text-xl md:text-2xl font-light text-gray-700 leading-snug mb-12">
           Join eToro today and start discovering a wide variety of <br className="hidden md:inline" /> benefits, on mobile or web platform:
         </h2>

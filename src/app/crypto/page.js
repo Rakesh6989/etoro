@@ -51,7 +51,7 @@ export default function Crypto() {
             <FAQ data={faqData} />
             <Footer />
             <div className="bg-gray-900 text-gray-400 font-sans p-6 md:p-12">
-                <div className="max-w-6xl mx-auto space-y-8">
+                <div className="Container-Div mx-auto space-y-8">
                     <div>
                         <h2 className="text-lg font-semibold text-white mb-2">General Risk Disclosure | Terms & Conditions</h2>
                         <p className="text-sm leading-relaxed">

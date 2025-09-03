@@ -10,8 +10,8 @@ const FAQ = ({ data }) => {
   };
 
   return (
-    <div className="bg-white py-16 px-6 sm:px-12 lg:px-24">
-      <div className="container mx-auto max-w-4xl">
+    <div className="bg-white py-16 px-6 ">
+      <div className="container mx-auto Container-Div">
         <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#1a2033] mb-12">
           FAQ
         </h2>

@@ -5,8 +5,8 @@ import Link from 'next/link';
 
 const FeaturesSection = () => {
   return (
-    <div className="bg-white py-16 px-6 sm:px-12 lg:px-24">
-      <div className="container mx-auto">
+    <div className="bg-white py-16 px-6 Container-Div">
+      <div className=" mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Card 1: Pro Tools for Traders */}
           <div className="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">

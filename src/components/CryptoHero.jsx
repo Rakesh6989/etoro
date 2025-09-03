@@ -5,8 +5,8 @@ import Link from "next/link";
 
 const CryptoHero = () => {
   return (
-    <div className="bg-white py-5 px-6 sm:px-12 lg:px-24">
-      <div className="container mx-auto">
+    <div className="bg-white py-5   Container-Div">
+      <div className=" mx-auto">
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center lg:space-x-12">
           {/* Left Side: Text and Button */}
           <div className="flex-1 text-center lg:text-left">

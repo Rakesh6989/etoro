@@ -4,8 +4,8 @@ import { Network, Globe, Smartphone } from 'lucide-react'; // Assuming you have 
 
 const WhyInvestSection = () => {
   return (
-    <div className="bg-white py-16 px-6 sm:px-12 lg:px-24 text-center">
-      <div className="container mx-auto">
+    <div className="bg-white py-16 px-6 sm:px-12 lg:px-24 text-center Container-Div">
+      <div className=" mx-auto">
         <h2 className="text-3xl sm:text-4xl font-semibold mb-12 text-[#1a2033]">
           Why invest in <span className="text-[#3b82f6]">crypto</span> on eToro?
         </h2>

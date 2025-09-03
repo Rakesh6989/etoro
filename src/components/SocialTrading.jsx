@@ -5,7 +5,7 @@ const SocialTrading = () => {
     return (
         <div className="Container-Div">
 
-            <div className="mx-auto max-w-6xl py-7">
+            <div className="mx-auto  py-7">
                 <p className="text-2xl font-black text-[#000] text-center">Social trading
                 </p>
                 <div className="max-w-[70%] mx-auto">

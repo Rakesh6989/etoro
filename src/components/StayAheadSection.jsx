@@ -5,8 +5,8 @@ import Image from 'next/image';
 
 const StayAheadSection = () => {
   return (
-    <div className="bg-white py-16 px-4 sm:px-6 lg:px-8 font-sans">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+    <div className="bg-white py-16 px-4  font-sans Container-Div">
+      <div className=" mx-auto flex flex-col md:flex-row items-center justify-around">
         
         {/* Left Side: Image */}
         <div className="relative w-full md:w-1/2 flex justify-center md:justify-end">
