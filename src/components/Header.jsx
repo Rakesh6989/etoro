@@ -13,8 +13,8 @@ const navItems = [
             { label: "Trading Platform", href: "/trading/platform" },
             { label: "Crypto on eToro", href: "/crypto" },
             { label: "CFD Trading", href: "/trading/cfd" },
-            { label: "Local Trading", href: "/trading/local" },
-            { label: "Demo Account", href: "/trading/demo" },
+            { label: "Local Trading", href: "local-trading" },
+            { label: "Demo Account", href: "/demo-account" },
             { label: "Fees", href: "/trading/fees" },
             { label: "Market Hours and Events", href: "/trading/market-hours" },
             { label: "Professional Account", href: "/trading/professional" },
@@ -77,7 +77,6 @@ export default function Header() {
     const router = useRouter();
     const headerRef = useRef(null);
 
-    // Click outside handler
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (headerRef.current && !headerRef.current.contains(event.target)) {
@@ -109,7 +108,6 @@ export default function Header() {
             <header className="w-full Container-Div">
                 <div className="flex items-center justify-between px-6 py-4">
                     <div className="flex items-center space-x-8">
-                        {/* Logo */}
                         <Link href="/" onClick={handleLinkClick}>
                             <Image
                                 src="/logo.png"
@@ -133,10 +131,9 @@ export default function Header() {
                                         {item.label}
                                     </button>
 
-                                    <div 
-                                        className={`absolute left-0 top-full ${
-                                            openDropdown === index ? 'block' : 'hidden'
-                                        } bg-white shadow-lg rounded-md w-80 z-20`}
+                                    <div
+                                        className={`absolute left-0 top-full ${openDropdown === index ? 'block' : 'hidden'
+                                            } bg-white shadow-lg rounded-md w-80 z-20`}
                                     >
                                         <ul className="flex flex-col p-5 text-sm text-gray-700">
                                             {item.links.map((link) => (
@@ -153,11 +150,10 @@ export default function Header() {
                                         </ul>
                                     </div>
                                 </div>
-                                            ))}
+                            ))}
                         </nav>
                     </div>
 
-                    {/* Right Section */}
                     <div className="hidden md:flex items-center space-x-6 text-[#404059] text-base">
                         <button
                             className="flex items-center space-x-1 hover:text-black"
@@ -186,7 +182,6 @@ export default function Header() {
                         </Link>
                     </div>
 
-                    {/* Mobile Hamburger */}
                     <button
                         className="md:hidden text-[#404059]"
                         onClick={() => setMenuOpen(!menuOpen)}
@@ -204,8 +199,8 @@ export default function Header() {
                                 <ul className="ml-3 mt-1 space-y-1">
                                     {item.links.map((link) => (
                                         <li key={link.href}>
-                                            <Link 
-                                                href={link.href} 
+                                            <Link
+                                                href={link.href}
                                                 className="block hover:text-black"
                                                 onClick={handleLinkClick}
                                             >

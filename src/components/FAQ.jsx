@@ -1,4 +1,4 @@
-// components/FAQ.jsx
+"use client"
 import React, { useState } from 'react';
 import { Plus, Minus } from 'lucide-react'; // Using lucide-react for the icons
 
@@ -10,8 +10,8 @@ const FAQ = ({ data }) => {
   };
 
   return (
-    <div className="bg-white py-16 px-6 ">
-      <div className="container mx-auto Container-Div">
+    <div className="bg-white py-16 px-6  mx-auto max-w-7xl ">
+      <div className=" ">
         <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#1a2033] mb-12">
           FAQ
         </h2>
@@ -30,9 +30,8 @@ const FAQ = ({ data }) => {
                 </span>
               </button>
               <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === index ? 'max-h-96 opacity-100 py-4' : 'max-h-0 opacity-0'
-                }`}
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-96 opacity-100 py-4' : 'max-h-0 opacity-0'
+                  }`}
               >
                 <p className="text-gray-700">{item.answer}</p>
               </div>

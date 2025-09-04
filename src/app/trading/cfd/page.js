@@ -50,15 +50,27 @@ const Cfd = () => {
     ];
     return (
         <>
-            <CfdTradingSection />
-            <FeaturesSection />
+            <CfdTradingSection
+                breadcrumbs={[
+                    { label: "Home", href: "/" },
+                    { label: "Trading", href: "/trading" },
+                    { label: "CFD Trading", href: "/cfd-trading" },
+                ]}
+                titleLines={["ACCESS THE POWER OF", "CFD TRADING"]}
+                titleColors={["#3b82f6", "#50b240"]}
+                description="Apply leverage, go short, and trade multiple assets with CFDs on eToro's innovative, user-friendly platform."
+                buttonText="Join eToro"
+                buttonLink="/signup"
+                imageSrc="/trading-cfd-half-cover-desk.jpg"
+                imageAlt="eToro mobile app displaying CFD trading charts"
+            />            <FeaturesSection />
             <AssetShowcase />
             <FeatureSlider />
             <StayAheadSection />
             <EducationalArticles />
             <TestDriveSection />
             <FAQ data={faqData} />
-            <Footer/>
+            <Footer />
 
         </>
     );
