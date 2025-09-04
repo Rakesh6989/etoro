@@ -66,7 +66,7 @@ export default function BestOfBothWorlds() {
         around the world. When you{" "}
         <a href="#" className="text-blue-600 underline">
           open a EUR account
-        </a>{" "}
+        </a>
         (also known as an eToro Money account), you add the flexibility to{" "}
         <span className="font-semibold">
           deposit, hold and fund trades in EUR or USD
