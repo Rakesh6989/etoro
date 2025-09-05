@@ -74,7 +74,6 @@ export default function BestOfBothWorlds() {
         — whichever suits you at any moment.
       </p>
 
-      {/* Feature Grid */}
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
         {features.map((item, idx) => (
           <div

@@ -110,7 +110,7 @@ const DemoAc = () => {
                         </ol>
 
                         <button className="px-8 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition duration-300">
-                            Get Started
+                            Get Started 
                         </button>
                     </div>
 
