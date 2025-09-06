@@ -21,7 +21,7 @@ export default function Home() {
         highlight="all in one app"
         description="Invest in thousands of stocks, crypto, ETFs… all in one easy-to-use app"
         buttonText="Join eToro"
-        buttonLink="/staking/start"
+        buttonLink="/login"
         imageSrc="/user.webp"
         imageAlt="eToro staking"
         termsText=""
