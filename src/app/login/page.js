@@ -1,73 +1,140 @@
-"use client"
+"use client";
 import { useState } from "react";
 
-const Login = () => {
-    const [credentials, setcredentials] = useState(
+const SignupForm = () => {
+  const [form, setForm] = useState({
+    email: "",
+    username: "",
+    password: "",
+    terms: false,
+    privacy: false,
+  });
 
-        {
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setForm((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
 
-            email: "",
-            password: ""
-        }
-    )
-    const [email, setemail] = useState("")
-    const [pass, setpass] = useState("")
-    const handlechange = (e) => {
-
-        const value = e.target.value;
-        const name = e.target.name;
-        console.log(value)
-        if (name == "email") { setemail(value) }
-        else if (name == "password") {
-
-            setpass(value)
-        }
-        // setcredentials([...credentials, value])
-        // = e.target.name;
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!form.email || !form.username || !form.password) {
+      alert("Please fill all required fields!");
+      return;
     }
-    const handlesubmit = (e) => {
-        e.preventDefault();
-        if (!email || !pass) {
-            alert("Please fill all the fields")
-        } else {
-            alert("Form Submitted")
-            console.log("credentials", email, pass)
-            setemail("")
-            setpass("")
-        }
-
+    if (!form.terms || !form.privacy) {
+      alert("Please accept Terms & Privacy Policy!");
+      return;
     }
-    return (<div>
+    console.log("Form Data:", form);
+    alert("Account Created Successfully!");
+    setForm({
+      email: "",
+      username: "",
+      password: "",
+      terms: false,
+      privacy: false,
+    });
+  };
 
+  return (
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 px-4">
+      <div className="w-full max-w-md bg-white rounded-xl shadow-lg p-6">
+        <h2 className="text-center text-2xl font-bold mb-4">Join eToro</h2>
 
+        {/* Google Button */}
+        <button className="w-full flex items-center justify-center gap-2 border rounded-full py-2 hover:bg-gray-100 transition">
+          <img
+            src="https://www.svgrepo.com/show/355037/google.svg"
+            alt="google"
+            className="w-5 h-5"
+          />
+          Continue with Google
+        </button>
 
-        <div className="w-1/2 m-auto bg-[#e1e1e0d6] mt-20 rounded-xl p-5">
-
-            <p className="text-center py-5 text-xl font-semibold">Login to Etoro</p>
-
-            <form onSubmit={handlesubmit}>
-                <div className="flex flex-col gap-2">
-
-                    <label className="text-xl py-1 font-semibold">Email:</label>
-
-                    <input type="email" placeholder="Enter Your Email" className="border p-1 rounded" onChange={handlechange} value={email} name="email" required />
-
-                    <label className="text-xl py-1 font-semibold">Password:</label>
-                    <input type="password" name="password" className="border p-1 rounded" placeholder="Enter Your Password" onChange={handlechange} value={pass} required />
-                    <div className="flex justify-center items-center pt-3">
-
-                        <button className=" bg-amber-500 px-4 py-1 rounded-xl text-white hover:font-semibold cursor-pointer " type="submit">Login</button>
-
-
-                    </div>
-                </div>
-
-            </form>
-
+        <div className="flex items-center my-4">
+          <hr className="flex-1 border-gray-300" />
+          <span className="px-2 text-gray-500 text-sm">Or</span>
+          <hr className="flex-1 border-gray-300" />
         </div>
 
-    </div>)
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            className="border p-2 rounded focus:outline-none focus:ring focus:ring-emerald-400"
+            value={form.email}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            className="border p-2 rounded focus:outline-none focus:ring focus:ring-emerald-400"
+            value={form.username}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            className="border p-2 rounded focus:outline-none focus:ring focus:ring-emerald-400"
+            value={form.password}
+            onChange={handleChange}
+            required
+          />
 
-}
-export default Login;
+          {/* Checkboxes */}
+          <label className="flex items-start gap-2 text-sm text-gray-600">
+            <input
+              type="checkbox"
+              name="terms"
+              checked={form.terms}
+              onChange={handleChange}
+            />
+            I acknowledge the eToro (Seychelles) Ltd{" "}
+            <a href="#" className="text-emerald-600 underline">
+              Terms & Conditions
+            </a>
+            .
+          </label>
+
+          <label className="flex items-start gap-2 text-sm text-gray-600">
+            <input
+              type="checkbox"
+              name="privacy"
+              checked={form.privacy}
+              onChange={handleChange}
+            />
+            I acknowledge that my information will be used in accordance with
+            the{" "}
+            <a href="#" className="text-emerald-600 underline">
+              Privacy Policy
+            </a>{" "}
+            and{" "}
+            <a href="#" className="text-emerald-600 underline">
+              Cookie Policy
+            </a>
+            .
+          </label>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="bg-emerald-500 hover:bg-emerald-600 text-white py-2 rounded-full font-semibold transition"
+          >
+            Create Account
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default SignupForm;
